@@ -73,7 +73,7 @@ export const presetRoutes = [{name: 'Warschauer Strasse-Berghain', selected: tru
     }
 ]},
 {
-  "name": "Ostbanhof-Books and bagels",
+  "name": "Ostbahnhof-Books and bagels",
   "selected": false,
   "coordinates": [
       {
@@ -123,7 +123,7 @@ export const presetRoutes = [{name: 'Warschauer Strasse-Berghain', selected: tru
   ]
 },
 {
-    "name": "Merced Arena-Computerspielemuseum",
+    "name": "Mercedes-Benz Arena-Computerspielemuseum",
     "selected": false,
     "coordinates": [
         {
