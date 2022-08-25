@@ -19,7 +19,7 @@ const App = () => {
   const [savedWayPoints, setSavedWayPoints] = useState<savedWayPoints[]>(presetRoutes)
 
   const onSaveChange = () => {
-    if(savedWayPoints.some(wp => wp.name === routeName)) return
+    if(savedWayPoints.some(wp => wp.name === routeName) || routeName === '') return
     const newWayPoint = {
       name: routeName,
       selected: false,
