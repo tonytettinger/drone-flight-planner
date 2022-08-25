@@ -21,6 +21,8 @@ const Canvas = ({
   });
 
   useEffect(() => {
+    console.log('second');
+
     if (canvasRef.current != null) {
       changeCanvasDimensions(canvasRef);
     }
@@ -34,10 +36,19 @@ const Canvas = ({
   }, []);
 
   React.useLayoutEffect(() => {
-    const selectedWayPoint = savedWayPoints.filter((wp) => wp.selected === true)
-    if(selectedWayPoint.length === 0) return
-    selectedWayPoint[0]
-      .coordinates.map((point, i, coordinatesArray) => {
+    const selectedWayPoint = savedWayPoints.filter(
+      (wp) => wp.selected === true
+    );
+    if (selectedWayPoint.length === 0) return;
+    //todo: this should be saved in the savedWayPoints as a prop
+    const originalSavedHeight = 864;
+    const heightAdjust = canvasDimensions.y / originalSavedHeight;
+    selectedWayPoint[0].coordinates
+      .map((point) => {
+        const yAdjusted = point.y * heightAdjust;
+        return { x: point.x, y: yAdjusted };
+      })
+      .map((point, i, coordinatesArray) => {
         const ctx = canvasRef.current
           ? canvasRef.current.getContext('2d')
           : null;
