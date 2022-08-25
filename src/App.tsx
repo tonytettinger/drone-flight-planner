@@ -8,6 +8,7 @@ export interface savedWayPoints {
   name: string;
   selected: boolean;
   coordinates: Coordinates[];
+  savedMapHeight: number
 }
 
 export type Coordinates = { x: number; y: number };
@@ -19,11 +20,12 @@ const App = () => {
   const [savedWayPoints, setSavedWayPoints] = useState<savedWayPoints[]>(presetRoutes)
 
   const onSaveChange = () => {
-    if(savedWayPoints.some(wp => wp.name === routeName) || routeName === '') return
+    if(savedWayPoints.some(wp => wp.name === routeName) || routeName === '' || !canvasRef.current) return
     const newWayPoint = {
       name: routeName,
       selected: false,
-      coordinates: wayPoints
+      coordinates: wayPoints,
+      savedMapHeight: canvasRef.current.clientHeight
     }
     setWayPoints([])
     const newWayPoints = [...savedWayPoints, newWayPoint]

@@ -21,8 +21,6 @@ const Canvas = ({
   });
 
   useEffect(() => {
-    console.log('second');
-
     if (canvasRef.current != null) {
       changeCanvasDimensions(canvasRef);
     }
@@ -40,8 +38,7 @@ const Canvas = ({
       (wp) => wp.selected === true
     );
     if (selectedWayPoint.length === 0) return;
-    //todo: this should be saved in the savedWayPoints as a prop
-    const originalSavedHeight = 864;
+    const originalSavedHeight = selectedWayPoint[0].savedMapHeight;
     const heightAdjust = canvasDimensions.y / originalSavedHeight;
     selectedWayPoint[0].coordinates
       .map((point) => {
