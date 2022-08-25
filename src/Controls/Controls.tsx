@@ -35,7 +35,7 @@ export const Controls = ({
     <StyledControls>
       <StyledHeader>Drone Flight planner</StyledHeader>
       <StyledInput
-        maxLength={35}
+        maxLength={40}
         placeholder="Enter current route name"
         value={routeName}
         onChange={onChangeHandler}
